@@ -1,12 +1,19 @@
 {
+<<<<<<< HEAD
   "name": "nong",
   "version": "0.0.0",
   "private": true,
+=======
+  "name": "board",
+  "private": true,
+  "version": "0.0.0",
+>>>>>>> ffc77c7 (create board)
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+<<<<<<< HEAD
     "lint": "eslint . --fix",
     "format": "prettier --write src/"
   },
@@ -14,11 +21,21 @@
     "@tailwindcss/vite": "^4.1.11",
     "canvas-confetti": "^1.9.3",
     "pinia": "^3.0.3",
+=======
+    "start-json-server": "json-server --watch db.json --port 3001"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "axios": "^1.10.0",
+    "json-server": "^1.0.0-beta.3",
+    "tailwind": "^2.3.1",
+>>>>>>> ffc77c7 (create board)
     "tailwindcss": "^4.1.11",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@eslint/js": "^9.29.0",
     "@vitejs/plugin-vue": "^6.0.0",
     "@vue/eslint-config-prettier": "^10.2.0",
@@ -28,5 +45,9 @@
     "prettier": "3.5.3",
     "vite": "^7.0.0",
     "vite-plugin-vue-devtools": "^7.7.7"
+=======
+    "@vitejs/plugin-vue": "^6.0.0",
+    "vite": "^7.0.4"
+>>>>>>> ffc77c7 (create board)
   }
 }
