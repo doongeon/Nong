@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 import { createRouter, createWebHistory } from 'vue-router';
 
-import boardRoutes from './board';
+import boardRoutes from './board.js';
 
 import HomePage from '../pages/HomePage.vue';
 
