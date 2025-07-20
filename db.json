@@ -1,0 +1,42 @@
+{
+  "posts": [
+    {
+      "postId": 1,
+      "userId": 1,
+      "nickname": "고추농사짓는사람",
+      "category": "재능기부",
+      "tags": ["퇴직자", "국어"],
+      "title": "농작물 좀 가꾸려는 퇴직한 교장입니다.",
+      "content": "내용...",
+      "region": "경상북도 청도군",
+      "imageUrl": "https://cdn.example.com/image123.jpg",
+      "viewCount": 123,
+      "createdAt": "2025-07-10T12:34:56",
+      "updatedAt": "2025-07-10T12:34:56"
+    },
+        {
+      "postId": 2,
+      "userId": 1,
+      "nickname": "고추농사짓는사람",
+      "category": "전체",
+      "tags": ["퇴직자", "국어"],
+      "title": "농작물 좀 가꾸려는 퇴직한 교장입니다.",
+      "content": "내용...",
+      "region": "내위치GPS",
+      "imageUrl": "https://cdn.example.com/image123.jpg",
+      "viewCount": 123,
+      "createdAt": "2025-07-10T12:34:56",
+      "updatedAt": "2025-07-10T12:34:56"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
