@@ -7,6 +7,7 @@
       <RouterLink :to="{ name: 'home' }">홈</RouterLink>
       <RouterLink :to="{ name: 'login' }">login test</RouterLink>
       <RouterLink :to="{ name: 'board/detail', params: { id: 1 } }">board/detail test</RouterLink>
+      <RouterLink :to="{ name: 'board/write' }">board/write test</RouterLink>
     </div>
   </nav>
 </template>

@@ -9,4 +9,9 @@ export default [
     name: 'board/detail',
     component: () => import('../pages/board/BoardDetailView.vue'),
   },
+  {
+    path: '/board/write',
+    name: 'board/write',
+    component: () => import('../pages/board/BoardWriteView.vue'),
+  },
 ];

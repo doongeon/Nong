@@ -1,9 +1,26 @@
 <template>
   <div class="max-w-3xl mx-auto mt-10 px-5">
-    <div class="flex flex-row justify-between">
-      <div class="flex flex-col ml-5">
-        <span class="font-bold text-lg">{{ board.title }}</span>
+    <div>
+      <div class="py-2 flex flex-row justify-between">
+        <div>
+          <span class="text-gray-500 mr-1">카테고리</span>
+          <span class="font-bold text-lg">{{ board.title }}</span>
+        </div>
+      </div>
+      <div class="py-2 flex flex-row justify-between border-t border-t-gray-200 items-center">
+        <div>
+          <i class="fa-solid fa-user text-gray-500 mr-1 fa-sm"></i>
+          <span class="text-sm">김농부</span>
+        </div>
         <span class="text-xs text-gray-400">{{ new Date().toLocaleDateString() }}</span>
+      </div>
+      <div class="py-2 border-t border-t-gray-200">
+        <i class="fa-regular fa-eye fa-xs text-gray-500 mr-1"></i>
+        <span class="text-sm">{{ board.views }}</span>
+      </div>
+      <div class="py-2 border-t border-t-gray-200 border-b border-b-gray-200">
+        <i class="ml-1 fa-solid fa-file fa-sm text-gray-500 mr-1"></i>
+        <span class="text-sm">{{ '파일' }}</span>
       </div>
     </div>
 
@@ -14,42 +31,70 @@
     </div>
     <div class="mt-3">
       <div class="w-full mt-5 whitespace-pre-wrap">{{ board.content }}</div>
-      <div class="mt-5 font-bold text-sm p-1">
-        <i class="fa-regular fa-heart fa-lg"></i> <span>{{ board.likes }}</span>
-        <i class="fa-regular fa-eye fa-lg ml-5"></i> <span>{{ board.views }}</span>
+      <div class="flex justify-center gap-10 mt-10">
+        <button class="bg-orange-500 text-orange-50 w-24 h-10 rounded-2xl">목록으로</button>
+        <router-link :to="{ name: 'board/write' }"
+          ><button
+            class="bg-orange-500 text-orange-50 w-24 h-10 rounded-2xl hover:opacity-50 cursor-pointer"
+          >
+            수정하기
+          </button></router-link
+        >
+        <button class="bg-orange-500 text-orange-50 w-24 h-10 rounded-2xl">삭제하기</button>
       </div>
     </div>
-
-    <form
-      @submit.prevent="handleSubmit"
-      class="border-t border-t-gray-400 mt-5 pt-10 flex flex-row justify-center items-center px-5"
-    >
-      <div class="flex flex-row items-center">
-        <div
-          :class="`size-8 rounded-full mr-3 ${gradientClasses[postId % gradientClasses.length]}`"
-        ></div>
-        <textarea
-          class="min-w-xs max-w-md h-[80px] border-b border-gray-500 resize-none focus:outline-none px-1"
-          type="text"
-          id="content"
-          v-model="commentForm.content"
-        ></textarea>
-      </div>
-      <button
-        type="submit"
-        class="ml-5 cursor-pointer bg-orange-500 size-8 rounded-2xl hover:opacity-80 transition"
-      >
-        <i class="fa-solid fa-arrow-up text-orange-50"></i>
-      </button>
-    </form>
-
-    <div class="mt-10">
+    <div class="border-t border-b border-gray-200 py-5 mt-5">
       <CommentsView :post-id="postId" ref="commentsViewRef">
         <p class="text-gray-500 text-center py-8 mt-10">
           아직 댓글이 없습니다. 첫 댓글을 남겨주세요!
         </p>
       </CommentsView>
     </div>
+
+    <form
+      @submit.prevent="handleSubmit"
+      class="pt-10 flex flex-row justify-center items-center px-5"
+    >
+      <div class="w-full">
+        <div class="flex flex-row">
+          <input
+            class="border border-gray-300 mr-5 px-2 py-1 rounded-lg"
+            type="text"
+            placeholder="작성자"
+          />
+          <input
+            class="border border-gray-300 px-2 py-1 rounded-lg"
+            type="text"
+            placeholder="비밀번호"
+          />
+        </div>
+        <textarea
+          class="mt-5 w-full h-[80px] border border-gray-200 rounded-lg px-2 py-1 resize-none focus:outline-none px-1"
+          type="text"
+          placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+          id="content"
+          v-model="commentForm.content"
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        class="ml-5 cursor-pointer bg-orange-500 size-8 rounded-full hover:opacity-80 transition"
+      >
+        <i class="fa-solid fa-arrow-up text-orange-50"></i>
+      </button>
+    </form>
+    <div class="flex flex-row justify-between mt-10">
+      <div class="border-t border-b border-gray-300 py-5 min-w-60 px-2">
+        <i class="fa-solid fa-arrow-left mr-2"></i>이전글
+      </div>
+      <div
+        class="border-t border-b border-gray-300 py-5 min-w-60 px-2 flex justify-end items-center"
+      >
+        다음글<i class="fa-solid fa-arrow-right ml-2"></i>
+      </div>
+    </div>
+
+    <div class="mt-10"></div>
   </div>
 </template>
 
@@ -89,23 +134,4 @@ v-html로 동적 content를 삽입하되, 보안 때문에 DOMPurify도 고민 �
 const commentForm = reactive({
   content: '',
 });
-
-const gradientClasses = [
-  'bg-gradient-to-r from-purple-500 to-pink-500',
-  'bg-gradient-to-br from-blue-400 to-green-300',
-  'bg-gradient-to-tl from-yellow-300 via-red-400 to-purple-500',
-  'bg-gradient-to-b from-indigo-600 to-purple-700',
-  'bg-gradient-to-tr from-green-400 to-blue-500',
-  'bg-gradient-to-l from-red-500 to-orange-500',
-  'bg-gradient-to-r from-cyan-400 to-sky-600',
-  'bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500',
-  'bg-gradient-to-br from-teal-400 to-emerald-500',
-  'bg-gradient-to-tr from-violet-500 to-pink-400',
-  'bg-gradient-to-b from-orange-300 to-rose-500',
-  'bg-gradient-to-tl from-sky-400 to-blue-700',
-  'bg-gradient-to-r from-amber-300 via-orange-400 to-red-500',
-  'bg-gradient-to-bl from-emerald-400 to-lime-300',
-  'bg-gradient-to-tr from-zinc-700 to-stone-500',
-  'bg-gradient-to-t from-blue-900 via-indigo-700 to-purple-700',
-];
 </script>
