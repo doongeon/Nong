@@ -6,6 +6,7 @@
     <div class="flex gap-5 mx-auto">
       <RouterLink :to="{ name: 'home' }">홈</RouterLink>
       <RouterLink :to="{ name: 'login' }">login test</RouterLink>
+      <RouterLink :to="{ name: 'board' }"> board test </RouterLink>
       <RouterLink :to="{ name: 'board/detail', params: { id: 1 } }">board/detail test</RouterLink>
       <RouterLink :to="{ name: 'board/write' }">board/write test</RouterLink>
     </div>
@@ -14,6 +15,7 @@
 
 <script setup>
 import confetti from 'canvas-confetti';
+import { RouterLink } from 'vue-router';
 
 const shootConfetti = () => {
   confetti({

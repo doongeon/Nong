@@ -8,16 +8,20 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "start-json-server": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "@vueup/vue-quill": "^1.2.0",
+    "axios": "^1.10.0",
     "canvas-confetti": "^1.9.3",
+    "moment": "^2.30.1",
     "pinia": "^3.0.3",
     "tailwindcss": "^4.1.11",
     "vue": "^3.5.17",
-    "vue-router": "^4.5.1"
+    "vue-router": "^4.5.1",
+    "json-server": "^1.0.0-beta.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",

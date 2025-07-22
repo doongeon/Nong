@@ -1,8 +1,12 @@
 {
+<<<<<<< HEAD
   "recommendations": [
     "Vue.volar",
     "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
     "esbenp.prettier-vscode"
   ]
+=======
+  "recommendations": ["Vue.volar"]
+>>>>>>> ffc77c7 (create board)
 }
